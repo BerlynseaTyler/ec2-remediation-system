@@ -70,7 +70,16 @@ DevOps teams are supported through through high-touch critical failures with an 
 - Calls AWS API to stop/start EC2 instance and logs results.
 ![008 Script Include](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/008%20Script%20Include.png)
 
-### Step 5: Create Automated Workflow
+
+### Step 7: AI Search Integration 
+- Create a workflow Action `AI Search Custom` .
+ - Set Action Input Variables:
+  ![018](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/018%20Action%20Input%20Variables.png)
+ - Set the scrip using the `AI Search Custom` code in Supporting Files.
+ - Set Output Variables:
+  ![019](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/019%20Action%20Output%20Variables.png)
+
+### Step 6: Create Automated Workflow
 ![009 Flow](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/009%20Flow.png)
 
 #### Trigger
@@ -122,12 +131,11 @@ DevOps teams are supported through through high-touch critical failures with an 
    -  Apply `To Fixed` transform of 2
  - Made SLA? `Update Record➛Incident Record➛Made SLA`
 
-### Step 6: Remediation Knowledge Article 
+### Step 7: Remediation Knowledge Article 
 - Create KB Article `EC2 Remediation Guidelines` in the IT Knowledge Base
 - Article contains keywords to ensure the AI Search action surfaces this article for any EC2-related incidents.
 ![017](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/017%20KB%20Article.png)
 
-### Step 7: AI Search Integration 
 
 ### Step 8: Testing & Validation 
 
