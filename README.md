@@ -1,5 +1,5 @@
  # EC2 Remediation System Overview 
-Centralized application for Netflix that adds a ServiceNow-AWS integration via custom coded UI for DevOps engineers to perform **one-click EC2 remediation**, while automatically handling Incident management when an instance fails and restarts, and real-time communication. 
+Centralized application for Netflix that adds a ServiceNow-AWS integration via custom coded UI for DevOps engineers to perform **one-click EC2 remediation**, while automatically handling Incident management when an instance fails and restarts and real-time communication. 
 
 DevOps teams are supported through through high-touch critical failures with an agentic AI-powered workflow that performs smart knowledge search for EC2 remediation guidance, sends an almost-instantaneous Slack notification that includes the KB articles' guidance, and informs the team as isntances are turned ON/OFF.
 
