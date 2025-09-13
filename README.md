@@ -50,11 +50,11 @@ DevOps teams are supported through through high-touch critical failures with an 
 ![004 Alias](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/004%20Alias.png)
 
 ##### ServiceNow HTTP Connection
-- Connect the HTTP Connection (URL Builder)
+- Connect the HTTP Connection (URL Builder).
 ![005 HTTP](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/005%20HTTP.png)
 
 ##### ServiceNow Credential Records (Type: Basic Auth)
-- Connect the Credentials to the HTTP URL (Username/Password)
+- Connect the Credentials to the HTTP URL (Username/Password).
 ![006 Credentials](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/006%20Credentials.png)
 
 ### Step 4: Set Up One-Click Remediation 
@@ -74,35 +74,61 @@ DevOps teams are supported through through high-touch critical failures with an 
 ![009 Flow](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/009%20Flow.png)
 
 #### Trigger
-- Every time an EC2 `instance_status` is OFF
+- Every time an EC2 `instance_status` is OFF.
 ![010](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/010%20Trigger.png)
 
 #### Create Incident Record
-- `instance_name` is dynamically included in the Incident's `short_description`
-- Incident is auto-assigned to `Networking Operations`
-- Priority is set to `1-Critical`
+- `instance_name` is dynamically included in the Incident's `short_description`.
+- Incident is auto-assigned to `Networking Operations`.
+- Priority is set to `1-Critical`.
 ![011](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/011%20Create%20Incident.png)
 
 #### AI Search Custom
 - `Search Terms` = all related keywords to EC2 remediation.
 - `Enabled Detail Logging` is required.
-- `Search App Name` used the pre-defined index `Knowledge`
+- `Search App Name` used the pre-defined index `Knowledge`.
 ![012](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/012%20AI%20Search.png)
   
 #### Set Flow Variable 
 - Flow Variables are used to build record links that will be used in the Post A Slack Message action.
-- `Instance URI` is set to script field using the following script: `return gs.getProperty('glide.servlet.uri')`
-- `EC2 Link` is set to: `Instance URI``EC2 Instance Table`.do?sys_id=`EC2 Instance Record Sys ID`
-- `Incident Record` is set to: `Instance URI``Incident Table`.do?sys_id=`Incident Record Sys ID`
-
+- `Instance URI` is set to script field using the following script: `return gs.getProperty('glide.servlet.uri')`.
+- `EC2 Link` is set to: `Instance URI EC2 Instance Table`.do?sys_id=`EC2 Instance Record Sys ID`.
+- `Incident Record` is set to: `Instance URI Incident Table`.do?sys_id=`Incident Record Sys ID`.
 ![013](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/013%20Set%20Flow%20Variables.png)
 
 #### Post A Slack Message (Instance OFF)
+- Connect the Slack channel Webhook.
+- Build a message relevant and appropriate for critical nature of the incident.
+![014](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/014%20Post%20Message%2C%20OFF.png)
+
 #### Do/Wait Until
+- Add Flow Logic `Do the following until`.
+- Add nested Flow Logic `Wait for a duration of time` set at `2 seconds`.
+- Set Until Condition to `instance_status` is ON.
+![015]()
+
 #### Update Incident Record
+- `State` = CLOSED.
+- `Resolution Notes` include the Knowledge Article(s) provided to the DevOps team via Slack.
+- `Caller` = System Administrator.
+- `Resolution Code` = Solution Provided
+  ![016]()
+  
 #### Post A Slack Message (Instance ON)
+- Connect the Slack channel Webhook.
+- Relevant information includes:
+  -  Total Time Until Resolution `Update Record➛Incident Record➛Resolve time`
+   -  Apply `Divide` transform of 60
+   -  Apply `To Fixed` transform of 2
+ - Made SLA? `Update Record➛Incident Record➛Made SLA`
+
 ### Step 6: Remediation Knowledge Article 
+- Create KB Article `EC2 Remediation Guidelines` in the IT Knowledge Base
+- Article contains keywords to ensure the AI Search action surfaces this article for any EC2-related incidents.
+![017](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/017%20KB%20Article.png)
+
 ### Step 7: AI Search Integration 
+
 ### Step 8: Testing & Validation 
 
 ## Architecture Diagram
