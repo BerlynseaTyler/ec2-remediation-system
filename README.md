@@ -71,7 +71,7 @@ DevOps teams are supported through through high-touch critical failures with an 
 ![008 Script Include](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/008%20Script%20Include.png)
 
 
-### Step 7: AI Search Integration 
+### Step 5: AI Search Integration 
 - Create a workflow Action `AI Search Custom` .
  - Set Action Input Variables:
   ![018.2](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/018.2%20Set%20Action%20Input%20Variables.png)
@@ -140,11 +140,29 @@ DevOps teams are supported through through high-touch critical failures with an 
 
 
 ### Step 8: Testing & Validation 
+1. Navigate to an EC2 Instance.
+2. Trigger remediation via the `Trigger EC2 Remediation` UI Button.
+   - If configured properly, a pop-up should appear indicating the failure or success of the remediation attempt.
+   - ![020](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/020%20Test%20Trigger%20Remediation%20Button.gif)
+3. Check the Remediation Log to verify the attempt was properly logged.
+   - ![021](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/021%20Test%20Remediation%20Log.png)
+4. Confirm Slack messages are being sent to the appropriate channel.
+   - ![022](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/022%20Test%20Slack%20Channel.png)
+
 
 ## Architecture Diagram
 ![Diagram](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Diagram.png)
 
 ![]()
 ## Optimization
+This remediation system is optimized for both speed and clarity in incident response. Direct links to relevant records are embedded within notifications to provide **easy accessibility** and reduce resolution time. Once the remediation is successfully executed, the associated Incident is automatically resolved, eliminating the need for manual closure and ensuring data integrity. Additionally, a confirmation message is posted to the designated Slack channel, providing the DevOps team with real-time visibility. This message includes key metrics such as **Time to Resolution** and whether the Incident met established SLA requirements, enabling teams to track operational efficiency and continuously improve response workflows.
 
 ## DevOps Usage 
+1. Navigate to an EC2 Instance record in ServiceNow.
+2. Click **Trigger EC2 Remediation**.
+3. Monitor Slack channel for:
+ - Failure notification
+ - KB guidance
+ - Resolution confirmation
+4. Track Incident lifecycle in ServiceNow.
+5. Review remediation logs for auditability.
