@@ -17,7 +17,7 @@ DevOps teams are supported through through high-touch critical failures with an 
 - The system will automatically create a scope: `x_snc_ec2_monito_0`.
 - All custom tables, flows, and actions must live inside this scope.
 
-![001 App Details]() 
+![001 App Details](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/001%20App%20Details.png) 
 
 ### Step 2: Create EC2 Instance and Log Tables
 #### Step 2.1: Create EC2 Instance Table
@@ -27,7 +27,7 @@ DevOps teams are supported through through high-touch critical failures with an 
   - `instance_id` (String)
   - `instance_status` (String)
 
-![002 EC2 Table]()
+![002 EC2 Table](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/002%20EC2%20Table.png)
 
 #### Step 2.2: Create Remediation Log Table
 - Table: Remediation Logs `x_snc_ec2_monitoring_remediation_log`
@@ -42,7 +42,7 @@ DevOps teams are supported through through high-touch critical failures with an 
   - `success` (True/False)
   - `timestamp` (Date/Time)
  
- ![003 Remediation Table]()
+ ![003 Remediation Table](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/003%20Remediation%20Table.png)
 
 ### Step 3: Connect AWS Integration Server
 ### Step 4: Set Up One-Click Remediation 
