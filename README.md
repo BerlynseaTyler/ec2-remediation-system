@@ -45,9 +45,31 @@ DevOps teams are supported through through high-touch critical failures with an 
  ![003 Remediation Table](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/003%20Remediation%20Table.png)
 
 ### Step 3: Connect AWS Integration Server
+#### ServiceNow Connection & Credential Alias
+- Create an Alias to house the HTTP Connection endpoint and Credential records.
+![004 Alias]()
+
+##### ServiceNow HTTP Connection
+- Connect the HTTP Connection (URL Builder)
+![005 HTTP]()
+
+##### ServiceNow Credential Records (Type: Basic Auth)
+- Connect the Credentials to the HTTP URL (Username/Password)
+![006 Credentials]()
+
 ### Step 4: Set Up One-Click Remediation 
 #### Step 4.1 Add "Trigger Remediation" Button to EC2 Table (Custom UI Action)
+- Add a **“Trigger Remediation”** button to the EC2 Instance form.
+- Client Script retrieves the record's `sys_id`
+- Calls GlideAjax → `EC2RemediationHelper`.
+![007 UI Action](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/007%20UI%20Action.png)
+
 #### Step 4.2: Add "EC2RemediationHelper" (Script Include)
+- Name: `EC2RemediationHelper`.
+- Function: Onclick `trigger_EC2_Remediation()`.
+- Calls AWS API to stop/start EC2 instance and logs results.
+![008 Script Include](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/008%20Script%20Include.png)
+
 ### Step 5: Create Automated Workflow
 #### Trigger
 #### Create Incident Record
@@ -64,6 +86,7 @@ DevOps teams are supported through through high-touch critical failures with an 
 ## Architecture Diagram
 ![Diagram](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Diagram.png)
 
+![]()
 ## Optimization
 
 ## DevOps Usage 
