@@ -13,9 +13,37 @@ DevOps teams are supported through through high-touch critical failures with an 
 
 ## Implementation Steps 
 ### Step 1: Create a ServiceNow Application
+- Create a scoped app: EC2 Monitoring and Remediation.
+- The system will automatically create a scope: `x_snc_ec2_monito_0`.
+- All custom tables, flows, and actions must live inside this scope.
+
+![001 App Details]() 
+
 ### Step 2: Create EC2 Instance and Log Tables
 #### Step 2.1: Create EC2 Instance Table
+- Table: EC2 Instance (`x_snc_ec2_monitoring_ec2_instance`)
+- Fields:
+  - `instance_name` (String)
+  - `instance_id` (String)
+  - `instance_status` (String)
+
+![002 EC2 Table]()
+
 #### Step 2.2: Create Remediation Log Table
+- Table: Remediation Logs `x_snc_ec2_monitoring_remediation_log`
+- Fields:
+  - `ec2_sys_id` (Reference → EC2 Instance table)
+  - `attempted_status` (String)
+  - `error_message` (String, 4000 characters)
+  - `http_status_code` (Integer)
+  - `request_payload` (String, 4000 characters)
+  - `response_payload` (String, 4000 characters)
+  - `response_time` (Integer)
+  - `success` (True/False)
+  - `timestamp` (Date/Time)
+ 
+ ![003 Remediation Table]()
+
 ### Step 3: Connect AWS Integration Server
 ### Step 4: Set Up One-Click Remediation 
 #### Step 4.1 Add "Trigger Remediation" Button to EC2 Table (Custom UI Action)
