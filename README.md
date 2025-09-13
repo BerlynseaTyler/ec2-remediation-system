@@ -47,15 +47,15 @@ DevOps teams are supported through through high-touch critical failures with an 
 ### Step 3: Connect AWS Integration Server
 #### ServiceNow Connection & Credential Alias
 - Create an Alias to house the HTTP Connection endpoint and Credential records.
-![004 Alias]()
+![004 Alias](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/004%20Alias.png)
 
 ##### ServiceNow HTTP Connection
 - Connect the HTTP Connection (URL Builder)
-![005 HTTP]()
+![005 HTTP](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/005%20HTTP.png)
 
 ##### ServiceNow Credential Records (Type: Basic Auth)
 - Connect the Credentials to the HTTP URL (Username/Password)
-![006 Credentials]()
+![006 Credentials](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/006%20Credentials.png)
 
 ### Step 4: Set Up One-Click Remediation 
 #### Step 4.1 Add "Trigger Remediation" Button to EC2 Table (Custom UI Action)
