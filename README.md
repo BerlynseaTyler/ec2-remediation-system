@@ -74,10 +74,12 @@ DevOps teams are supported through through high-touch critical failures with an 
 ### Step 7: AI Search Integration 
 - Create a workflow Action `AI Search Custom` .
  - Set Action Input Variables:
+  ![018.2](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/018.2%20Set%20Action%20Input%20Variables.png)
   ![018](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/018%20Action%20Input%20Variables.png)
  - Set the scrip using the `AI Search Custom` code in Supporting Files.
  - Set Output Variables:
-  ![019](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/019%20Action%20Output%20Variables.png)
+   ![019.2](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/019.2%20Set%20Action%20Output%20Variables.png)
+   ![019](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/019%20Action%20Output%20Variables.png)
 
 ### Step 6: Create Automated Workflow
 ![009 Flow](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/009%20Flow.png)
@@ -114,14 +116,14 @@ DevOps teams are supported through through high-touch critical failures with an 
 - Add Flow Logic `Do the following until`.
 - Add nested Flow Logic `Wait for a duration of time` set at `2 seconds`.
 - Set Until Condition to `instance_status` is ON.
-![015]()
+![015](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/015%20Until%20Condition.png)
 
 #### Update Incident Record
 - `State` = CLOSED.
 - `Resolution Notes` include the Knowledge Article(s) provided to the DevOps team via Slack.
 - `Caller` = System Administrator.
 - `Resolution Code` = Solution Provided
-  ![016]()
+  ![016](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/016%20Update%20Incident.png)
   
 #### Post A Slack Message (Instance ON)
 - Connect the Slack channel Webhook.
