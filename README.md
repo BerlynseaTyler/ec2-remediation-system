@@ -71,9 +71,23 @@ DevOps teams are supported through through high-touch critical failures with an 
 ![008 Script Include](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/008%20Script%20Include.png)
 
 ### Step 5: Create Automated Workflow
+![009 Flow](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/009%20Flow.png)
+
 #### Trigger
+- Every time an EC2 `instance_status` is OFF
+![010](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/010%20Trigger.png)
+
 #### Create Incident Record
+- `instance_name` is dynamically included in the Incident's `short_description`
+- Incident is auto-assigned to `Networking Operations`
+- Priority is set to `1-Critical`
+![011](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/011%20Create%20Incident.png)
+
 #### AI Search Custom
+- `Search Terms` = all related keywords to EC2 remediation.
+- `Enabled Detail Logging` is required.
+- `Search App Name` used the pre-defined index `Knowledge`
+  
 #### Set Flow Variable 
 #### Post A Slack Message (Instance OFF)
 #### Do/Wait Until
