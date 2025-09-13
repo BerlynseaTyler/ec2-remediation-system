@@ -87,8 +87,16 @@ DevOps teams are supported through through high-touch critical failures with an 
 - `Search Terms` = all related keywords to EC2 remediation.
 - `Enabled Detail Logging` is required.
 - `Search App Name` used the pre-defined index `Knowledge`
+![012](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/012%20AI%20Search.png)
   
 #### Set Flow Variable 
+- Flow Variables are used to build record links that will be used in the Post A Slack Message action.
+- `Instance URI` is set to script field using the following script: `return gs.getProperty('glide.servlet.uri')`
+- `EC2 Link` is set to: `Instance URI``EC2 Instance Table`.do?sys_id=`EC2 Instance Record Sys ID`
+- `Incident Record` is set to: `Instance URI``Incident Table`.do?sys_id=`Incident Record Sys ID`
+
+![013](https://github.com/BerlynseaTyler/ec2-remediation-system/blob/main/Images/013%20Set%20Flow%20Variables.png)
+
 #### Post A Slack Message (Instance OFF)
 #### Do/Wait Until
 #### Update Incident Record
